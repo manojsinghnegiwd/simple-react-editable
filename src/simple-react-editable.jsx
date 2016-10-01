@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class SimpleReactEditable extends React.Component {
 	constructor(props) {
@@ -37,7 +38,7 @@ export default class SimpleReactEditable extends React.Component {
 	renderEditable () {
 		return (
 			<div>
-				<textarea className={this.state.element_class + "-edit-area"} onChange={this.changeContent} value={this.state.content}/>
+				<textarea autoFocus ref="textarea" className={this.state.element_class + "-edit-area"} onChange={this.changeContent} value={this.state.content} onBlur={this.toggleEditing}/>
 				<div>
 					<button className={this.state.element_class + "-close-btn"} onClick={this.toggleEditing} type="button">Close</button>
 				</div>
