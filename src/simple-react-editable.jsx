@@ -6,7 +6,7 @@ export default class SimpleReactEditable extends React.Component {
 		this.state = {
 			editing: false,
 			content: '',
-			element_class = 'sre';
+			element_class: 'sre'
 		};
 		this.toggleEditing = this.toggleEditing.bind(this);
 		this.changeContent = this.changeContent.bind(this);
