@@ -4,7 +4,7 @@ Simple React Editable
 
 Installation
 ------------
-```bash
+```sh
 npm install simple-react-editable --save
 ````
 Usage
@@ -22,10 +22,10 @@ Takes your content to render inside the element
 
 Customize look and feel
 -----------------------
-You can customize the feel look and feel of the element using css classes provide by the <SimpleReactComponent />
+You can customize the look and feel of the element using css classes provide by the `<SimpleReactComponent />`
 
 ### .sre-edit-area
-The area visible upon ediing the text
+The textarea visible upon ediing the text
 
 ```html
 <textarea class="sre-edit-area">hello this thing is editable</textarea>
