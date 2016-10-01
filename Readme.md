@@ -46,3 +46,5 @@ Your text is rendered inside this class
 ### Todo
 * Provide a onChange event with updated value
 * New themes ( on the way )
+* Custom classes
+* Option to hide cancel button
