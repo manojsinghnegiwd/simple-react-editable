@@ -5,7 +5,8 @@ export default class SimpleReactEditable extends React.Component {
 		super(props);
 		this.state = {
 			editing: false,
-			content: ''
+			content: '',
+			element_class = 'sre';
 		};
 		this.toggleEditing = this.toggleEditing.bind(this);
 		this.changeContent = this.changeContent.bind(this);
@@ -35,10 +36,10 @@ export default class SimpleReactEditable extends React.Component {
 
 	renderEditable () {
 		return (
-			<div className="editable-content">
-				<textarea onChange={this.changeContent} value={this.state.content} onBlur={this.toggleEditing} />
+			<div>
+				<textarea className={this.state.element_class + "-edit-area"} onChange={this.changeContent} value={this.state.content}/>
 				<div>
-					<button onClick={this.toggleEditing} type="button">Close</button>
+					<button className={this.state.element_class + "-close-btn"} onClick={this.toggleEditing} type="button">Close</button>
 				</div>
 			</div>
 		)
@@ -46,7 +47,7 @@ export default class SimpleReactEditable extends React.Component {
 
 	renderPreview () {
 		return (
-			<span className="editable-preview" onClick={this.toggleEditing}>
+			<span className={this.state.element_class + "-preview"} onClick={this.toggleEditing}>
 				{this.state.content}
 			</span>
 		)
