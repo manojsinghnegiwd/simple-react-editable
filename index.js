@@ -71,7 +71,7 @@ var SimpleReactEditable = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement('textarea', { autoFocus: true, ref: 'textarea', className: this.state.element_class + "-edit-area", onChange: this.changeContent, value: this.state.content, onBlur: this.toggleEditing }),
+				_react2.default.createElement('textarea', { autoFocus: true, className: this.state.element_class + "-edit-area", onChange: this.changeContent, value: this.state.content, onBlur: this.toggleEditing }),
 				_react2.default.createElement(
 					'div',
 					null,
