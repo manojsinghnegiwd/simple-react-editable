@@ -28,7 +28,8 @@ var SimpleReactEditable = function (_React$Component) {
 
 		_this.state = {
 			editing: false,
-			content: ''
+			content: '',
+			element_class: 'sre'
 		};
 		_this.toggleEditing = _this.toggleEditing.bind(_this);
 		_this.changeContent = _this.changeContent.bind(_this);
@@ -65,14 +66,14 @@ var SimpleReactEditable = function (_React$Component) {
 		value: function renderEditable() {
 			return _react2.default.createElement(
 				'div',
-				{ className: 'editable-content' },
-				_react2.default.createElement('textarea', { onChange: this.changeContent, value: this.state.content, onBlur: this.toggleEditing }),
+				null,
+				_react2.default.createElement('textarea', { className: this.state.element_class + "-edit-area", onChange: this.changeContent, value: this.state.content }),
 				_react2.default.createElement(
 					'div',
 					null,
 					_react2.default.createElement(
 						'button',
-						{ onClick: this.toggleEditing, type: 'button' },
+						{ className: this.state.element_class + "-close-btn", onClick: this.toggleEditing, type: 'button' },
 						'Close'
 					)
 				)
@@ -83,7 +84,7 @@ var SimpleReactEditable = function (_React$Component) {
 		value: function renderPreview() {
 			return _react2.default.createElement(
 				'span',
-				{ className: 'editable-preview', onClick: this.toggleEditing },
+				{ className: this.state.element_class + "-preview", onClick: this.toggleEditing },
 				this.state.content
 			);
 		}
