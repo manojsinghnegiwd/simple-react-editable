@@ -1,0 +1,25 @@
+{
+  "name": "simple-react-editable",
+  "version": "1.0.0",
+  "description": "A react component to make any text editable",
+  "main": "index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/babel src/simple-react-editable.jsx -o index.js",
+    "prepublish": "npm run build"
+  },
+  "keywords": [
+    "simple-react-editable"
+  ],
+  "author": "Manoj Singh Negi",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0"
+  }
+}
