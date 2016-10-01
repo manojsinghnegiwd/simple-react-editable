@@ -7,11 +7,20 @@
     "build": "./node_modules/.bin/babel src/simple-react-editable.jsx -o index.js",
     "prepublish": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manojsinghnegiwd/simple-react-editable"
+  },
+  "bugs": {
+    "url": "https://github.com/manojsinghnegiwd/simple-react-editable/issues"
+  },
   "keywords": [
-    "simple-react-editable"
+    "simple-react-editable",
+    "react",
+    "textarea component"
   ],
   "author": "Manoj Singh Negi",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
