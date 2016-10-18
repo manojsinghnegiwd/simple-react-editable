@@ -56,6 +56,7 @@ var SimpleReactEditable = function (_React$Component) {
 			this.setState({
 				editing: !editing
 			});
+			this.props.onClose(e);
 		}
 	}, {
 		key: 'changeContent',

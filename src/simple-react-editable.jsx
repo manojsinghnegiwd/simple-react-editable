@@ -26,6 +26,7 @@ export default class SimpleReactEditable extends React.Component {
 		this.setState({
 			editing: !editing
 		})
+		this.props.onClose(e);
 	}
 
 	changeContent (e) {
