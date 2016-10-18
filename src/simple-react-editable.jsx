@@ -9,7 +9,8 @@ export default class SimpleReactEditable extends React.Component {
 			content: '',
 			element_class: 'sre'
 		};
-		this.toggleEditing = this.toggleEditing.bind(this);
+		this.openEditing = this.openEditing.bind(this);
+		this.closeEditing = this.closeEditing.bind(this);
 		this.changeContent = this.changeContent.bind(this);
 		this.renderEditable = this.renderEditable.bind(this);
 		this.renderPreview = this.renderPreview.bind(this);
@@ -21,13 +22,30 @@ export default class SimpleReactEditable extends React.Component {
 		});
 	}
 
-	toggleEditing () {
+	closeEditing (e) {
 		let editing = this.state.editing;
 		this.setState({
-			editing: !editing
+			editing: false
 		})
-		this.props.onClose(e);
+
+		// if props are passed call them
+		if(this.props.onEditingClose){
+			this.props.onEditingClose(e);
+		}
 	}
+
+	openEditing (e) {
+		let editing = this.state.editing;
+		this.setState({
+			editing: true
+		})
+
+		// if props are passed call them
+		if(this.props.onEditingOpen){
+			this.props.onEditingOpen(e);
+		}
+	}
+
 
 	changeContent (e) {
 		let content = e.target.value;
@@ -39,9 +57,9 @@ export default class SimpleReactEditable extends React.Component {
 	renderEditable () {
 		return (
 			<div>
-				<textarea autoFocus className={this.state.element_class + "-edit-area"} onChange={this.changeContent} value={this.state.content} onBlur={this.toggleEditing}/>
+				<textarea autoFocus className={this.state.element_class + "-edit-area"} onChange={this.changeContent} value={this.state.content} onBlur={this.closeEditing}/>
 				<div>
-					<button className={this.state.element_class + "-close-btn"} onClick={this.toggleEditing} type="button">Close</button>
+					<button className={this.state.element_class + "-close-btn"} onClick={this.closeEditing} type="button">Close</button>
 				</div>
 			</div>
 		)
@@ -49,7 +67,7 @@ export default class SimpleReactEditable extends React.Component {
 
 	renderPreview () {
 		return (
-			<span className={this.state.element_class + "-preview"} onClick={this.toggleEditing}>
+			<span className={this.state.element_class + "-preview"} onClick={this.openEditing}>
 				{this.state.content}
 			</span>
 		)

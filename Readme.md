@@ -19,6 +19,21 @@ Props
 -----
 ## Content
 Takes your content to render inside the element
+```html
+<SimpleReactComponent content="hello this thing is editable" />
+```
+
+## onEditingOpen
+Fires on when user open textarea to edit text
+```html
+<SimpleReactComponent onEditingOpen={ () => { console.log('editing started') }} content="hello this thing is editable" />
+```
+
+## onEditingClose
+Fires on when user open textarea to edit text
+```html
+<SimpleReactComponent onEditingClose={ () => { console.log('editing closed') }} content="hello this thing is editable" />
+```
 
 Customize look and feel
 -----------------------

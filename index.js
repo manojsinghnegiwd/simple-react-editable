@@ -35,7 +35,8 @@ var SimpleReactEditable = function (_React$Component) {
 			content: '',
 			element_class: 'sre'
 		};
-		_this.toggleEditing = _this.toggleEditing.bind(_this);
+		_this.openEditing = _this.openEditing.bind(_this);
+		_this.closeEditing = _this.closeEditing.bind(_this);
 		_this.changeContent = _this.changeContent.bind(_this);
 		_this.renderEditable = _this.renderEditable.bind(_this);
 		_this.renderPreview = _this.renderPreview.bind(_this);
@@ -50,13 +51,30 @@ var SimpleReactEditable = function (_React$Component) {
 			});
 		}
 	}, {
-		key: 'toggleEditing',
-		value: function toggleEditing() {
+		key: 'closeEditing',
+		value: function closeEditing(e) {
 			var editing = this.state.editing;
 			this.setState({
-				editing: !editing
+				editing: false
 			});
-			this.props.onClose(e);
+
+			// if props are passed call them
+			if (this.props.onEditingClose) {
+				this.props.onEditingClose(e);
+			}
+		}
+	}, {
+		key: 'openEditing',
+		value: function openEditing(e) {
+			var editing = this.state.editing;
+			this.setState({
+				editing: true
+			});
+
+			// if props are passed call them
+			if (this.props.onEditingOpen) {
+				this.props.onEditingOpen(e);
+			}
 		}
 	}, {
 		key: 'changeContent',
@@ -72,13 +90,13 @@ var SimpleReactEditable = function (_React$Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement('textarea', { autoFocus: true, className: this.state.element_class + "-edit-area", onChange: this.changeContent, value: this.state.content, onBlur: this.toggleEditing }),
+				_react2.default.createElement('textarea', { autoFocus: true, className: this.state.element_class + "-edit-area", onChange: this.changeContent, value: this.state.content, onBlur: this.closeEditing }),
 				_react2.default.createElement(
 					'div',
 					null,
 					_react2.default.createElement(
 						'button',
-						{ className: this.state.element_class + "-close-btn", onClick: this.toggleEditing, type: 'button' },
+						{ className: this.state.element_class + "-close-btn", onClick: this.closeEditing, type: 'button' },
 						'Close'
 					)
 				)
@@ -89,7 +107,7 @@ var SimpleReactEditable = function (_React$Component) {
 		value: function renderPreview() {
 			return _react2.default.createElement(
 				'span',
-				{ className: this.state.element_class + "-preview", onClick: this.toggleEditing },
+				{ className: this.state.element_class + "-preview", onClick: this.openEditing },
 				this.state.content
 			);
 		}

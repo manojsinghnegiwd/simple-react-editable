@@ -1,6 +1,6 @@
 {
   "name": "simple-react-editable",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A react component to make any text editable",
   "main": "index.js",
   "scripts": {
