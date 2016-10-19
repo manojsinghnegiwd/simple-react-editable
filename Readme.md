@@ -24,15 +24,15 @@ Takes your content to render inside the element
 ```
 
 ## onEditingOpen
-Fires on when user open textarea to edit text
+Fires on when user open textarea to edit text wth textarea value
 ```html
-<SimpleReactComponent onEditingOpen={ () => { console.log('editing started') }} content="hello this thing is editable" />
+<SimpleReactComponent onEditingOpen={ (e, value) => { console.log('editing started', value) }} content="hello this thing is editable" />
 ```
 
 ## onEditingClose
-Fires on when user open textarea to edit text
+Fires on when user open textarea to edit text wth textarea updated value
 ```html
-<SimpleReactComponent onEditingClose={ () => { console.log('editing closed') }} content="hello this thing is editable" />
+<SimpleReactComponent onEditingClose={ (e, value) => { console.log('editing closed', value) }} content="hello this thing is editable" />
 ```
 
 Customize look and feel

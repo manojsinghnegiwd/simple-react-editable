@@ -60,7 +60,7 @@ var SimpleReactEditable = function (_React$Component) {
 
 			// if props are passed call them
 			if (this.props.onEditingClose) {
-				this.props.onEditingClose(e);
+				this.props.onEditingClose(e, this.state.content);
 			}
 		}
 	}, {
@@ -73,7 +73,7 @@ var SimpleReactEditable = function (_React$Component) {
 
 			// if props are passed call them
 			if (this.props.onEditingOpen) {
-				this.props.onEditingOpen(e);
+				this.props.onEditingOpen(e, this.state.content);
 			}
 		}
 	}, {
