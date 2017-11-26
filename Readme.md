@@ -20,24 +20,30 @@ Props
 ## Content
 Takes your content to render inside the element
 ```html
-<SimpleReactComponent content="hello this thing is editable" />
+<SimpleReactEditable content="hello this thing is editable" />
 ```
 
 ## onEditingOpen
 Fires on when user open textarea to edit text wth textarea value
 ```html
-<SimpleReactComponent onEditingOpen={ (e, value) => { console.log('editing started', value) }} content="hello this thing is editable" />
+<SimpleReactEditable onEditingOpen={ (e, value) => { console.log('editing started', value) }} content="hello this thing is editable" />
 ```
 
 ## onEditingClose
 Fires on when user open textarea to edit text wth textarea updated value
 ```html
-<SimpleReactComponent onEditingClose={ (e, value) => { console.log('editing closed', value) }} content="hello this thing is editable" />
+<SimpleReactEditable onEditingClose={ (e, value) => { console.log('editing closed', value) }} content="hello this thing is editable" />
+```
+
+## textfield
+Add the property `textfield` to get a texfield instead of a textarea when editing the text. This is usefull when you want to only edit a single line of text.
+```html
+<SimpleReactEditable textfield content="this is single-line editable" />
 ```
 
 Customize look and feel
 -----------------------
-You can customize the look and feel of the element using css classes provide by the `<SimpleReactComponent />`
+You can customize the look and feel of the element using css classes provide by the `<SimpleReactEditable />`
 
 ### .sre-edit-area
 The textarea visible upon ediing the text
